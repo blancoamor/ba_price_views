@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <record model="ir.ui.view" id="product_pricelist_price_form_view">
+        <field name="name">product.pricelist.price.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <data>
+                        <page string="Information">
+                <group>
+                                <field name="pricelist_principal" />
+                </group>
+            </page>
+            </data> 
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_pricelist_price_tree_view">
+        <field name="name">product.pricelist.price.tree.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <data>
+            <field name="lst_price" position="replace">
+                          <field name="pricelist_principal" />
+            </field>
+            </data> 
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_pricelist_price_tree_view">
+        <field name="name">product.product_template.pricelist.price.tree.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <data>
+            <field name="categ_id" position="after">
+                          <field name="pricelist_principal" />
+            </field>
+            </data> 
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_pricelist_price_form_view">
+        <field name="name">product.product_template.pricelist.price.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <data>
+                        <page string="Information">
+                <group>
+                                <field name="pricelist_principal" />
+                </group>
+            </page>
+            </data> 
+        </field>
+    </record>
+
+    <!--
+    <record model="ir.ui.view" id="product_pricelist_price_kanban_view">
+        <field name="name">product.pricelist.price.kanban.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_kanban_view"/>
+        <field name="arch" type="xml">
+            <data>
+            <field name="lst_price" position="after">
+            <ul position="inside">
+                          <field name="pricelist_principal" />
+            </ul>
+            </field>
+            </data> 
+        </field>
+    </record>
+-->
+    </data>
+</openerp>
+
+
