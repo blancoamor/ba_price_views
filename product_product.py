@@ -22,7 +22,7 @@ import openerp
 from openerp import models, fields, api
 from openerp.osv import orm, fields, osv
 
-from datetime import date
+import datetime 
 #import pdb
 #import logging
 #_logger = logging.getLogger(__name__)
