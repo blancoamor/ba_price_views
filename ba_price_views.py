@@ -24,7 +24,7 @@ from openerp.addons.crm import crm
 from openerp.osv import fields, osv
 from openerp import tools
 from openerp.tools.translate import _
-from datetime import date
+import datetime 
 #import pdb
 
 class product_product(osv.osv):

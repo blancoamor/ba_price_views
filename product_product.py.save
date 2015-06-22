@@ -24,8 +24,8 @@ from openerp.osv import orm, fields, osv
 
 from datetime import date 
 #import pdb
-import logging
-_logger = logging.getLogger(__name__)
+#import logging
+#_logger = logging.getLogger(__name__)
 
 class product_product(osv.osv):
 
@@ -39,21 +39,19 @@ class product_product(osv.osv):
             context = {}
         res = {}
         for product in self.browse(cr, uid, ids, context=context):
-            price_pricelist=self.pool.get('product.pricelist').price_get(cr,uid,[5,29,12],product.id,1.0,1,{'uom':1,'date':unicode(date.today())})
+            price_pricelist=self.pool.get('product.pricelist').price_get(cr,uid,[5,12,29],product.id,1.0,1,{'uom':1,'date':unicode(date.today())})
 
-            res[product.id] = ''
-            if 5 in price_pricelist:
-               res[product.id] =res[product.id] + "3:"+str(price_pricelist[5]) + "\n"
-            if 12 in price_pricelist:
-               res[product.id] =res[product.id] +  "4:"+str(price_pricelist[12])+ "\n"
-            if 29 in price_pricelist:
-               res[product.id] =res[product.id] + "5:"+str(price_pricelist[29])
+            res[product.id]=''
+            if 1 in price_pricelist:
+            res[product.id] = ]"3:"+str(price_pricelist[1]) + "\n4:"+str(price_pricelist[2])+ "\n5:"+str(price_pricelist[2])
+            #else : 
+            #    res[product.id] = str('--')
 
 
         return res
 
     _columns = {
-        'pricelist_principal': fields.function(_fnct_pricelist_price, string='Mayoristas',type='char', size=256,),
+        'pricelist_principal': fields.function(_fnct_pricelist_price, string='lista principal',type='char', size=256,),
     }
 
 class product_template(osv.osv):
@@ -68,16 +66,13 @@ class product_template(osv.osv):
             context = {}
         res = {}
         for product in self.browse(cr, uid, ids, context=context):
-            
             price_pricelist=self.pool.get('product.pricelist').price_get(cr,uid,[5,12,29],product.id,1.0,1,{'uom':1,'date':unicode(date.today())})
 
-            res[product.id] = ''
-            if 5 in price_pricelist:
-               res[product.id] =res[product.id] + "3:"+str(price_pricelist[5]) + "\n"
-            if 12 in price_pricelist:
-               res[product.id] =res[product.id] +  "4:"+str(price_pricelist[12])+ "\n"
-            if 29 in price_pricelist:
-               res[product.id] =res[product.id] + "5:"+str(price_pricelist[29])
+            #if 1 in price_pricelist:
+            res[product.id] = "3:"+str(price_pricelist[1]) + "\n4:"+str(price_pricelist[2])+ "\n5:"+str(price_pricelist[2])
+            #else : 
+               # res[product.id] = str('--')
+
 
         return res
 
